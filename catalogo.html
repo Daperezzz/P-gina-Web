@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
 </head>
-
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -57,42 +57,35 @@
 <!-- FIN NAV-->
 
 <!-- Carrito--> 
-
-    <div class="containerCarrito">
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Carrito</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-            <div>
-                CARRITO DE COMPRAS EN MANTENIMIENTO
-            </div>
-            <div class="dropdown mt-3">
-                <button type="button" class="btn btn-primary">Confirmar
-                </button>
-            </div>
-            </div>
+<div class="containerCarrito">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Carrito</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+        <div id="cartItems"></div>
+        <div class="dropdown mt-3">
+            <button type="button" class="btn btn-primary" onclick="confirmarCompra()">Confirmar Compra</button>
+        </div>
         </div>
     </div>
+</div>
 
-    <!--FIN OFFCANVAS-->
-
-    <!-- Login-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Login-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="login">Inicar Sesion</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="login">Iniciar Sesión</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="https://kgames-serverless-api-delta.vercel.app/api/tester" method="post" class="container">
+        <form action="https://kgames-serverless-api-delta.vercel.app/api/tester" method="post" class="container">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" required class="form-control" id="email" placeholder="name@example.com">
             </div>
-
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" required minlength="6"  name="password" id="pass" class="form-control">
@@ -100,83 +93,91 @@
         </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary">Continuar</button>
-        </div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Continuar</button>
         </div>
     </div>
     </div>
-    
-    <!-- fin modal-->
-<!--CARD para el catalogo-->
+</div>
+<!-- Fin modal -->
+
+<!-- CARD para el catálogo -->
 <div class="container-uu">
     <div class="row">
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem;">
-        <img src="img/laroja.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta Seleccion Chilena</h5>
-            <p class="card-text">UNA CAMISETA LOCAL DE CHILE INSPIRADA EN SU HINCHADA, HECHA CON MATERIALES RECICLADOS.</p>
-            <a href="#" class="btn btn-primary">VER</a>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/laroja.webp" class="card-img-top" alt="Camiseta Selección Chilena">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Selección Chilena</h5>
+                    <p class="card-text">UNA CAMISETA LOCAL DE CHILE INSPIRADA EN SU HINCHADA, HECHA CON MATERIALES RECICLADOS.</p>
+                    <p class="card-text"><strong>Precio: $29.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta Selección Chilena', 29.99)">Añadir al Carrito</button>
+                </div>
+            </div>
         </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/colo.webp" class="card-img-top" alt="Camiseta Colo Colo Visita">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Colo Colo Visita</h5>
+                    <p class="card-text">LA CAMISETA ALTERNATIVA 2024 PARA ALENTAR EN TODA OCASIÓN.</p>
+                    <p class="card-text"><strong>Precio: $25.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta Colo Colo Visita', 25.99)">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/boca.jpg" class="card-img-top" alt="Camiseta Boca Juniors">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Boca Juniors</h5>
+                    <p class="card-text">Cuenta la leyenda que los célebres colores azul y amarillo de Boca Juniors tienen su origen en un barco sueco.</p>
+                    <p class="card-text"><strong>Precio: $27.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta Boca Juniors', 27.99)">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/brasil.webp" class="card-img-top" alt="Camiseta Brasil Copa América 2024">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Brasil Copa América 2024</h5>
+                    <p class="card-text">El uniforme más icónico del mundo del fútbol con un estampado integral que celebra la arquitectura, la música y las maravillas naturales de Brasil.</p>
+                    <p class="card-text"><strong>Precio: $30.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta Brasil Copa América 2024', 30.99)">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/u.avif" class="card-img-top" alt="Camiseta Universidad de Chile 2024">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta Universidad de Chile 2024</h5>
+                    <p class="card-text">Un estilo clásico conectando el pasado con el futuro, representando el azul del cielo Chileno.</p>
+                    <p class="card-text"><strong>Precio: $28.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta Universidad de Chile 2024', 28.99)">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 20rem;">
+                <img src="img/barcelona.webp" class="card-img-top" alt="Camiseta FC Barcelona 2024">
+                <div class="card-body">
+                    <h5 class="card-title">Camiseta FC Barcelona 2024</h5>
+                    <p class="card-text">El kit del FC Barcelona local 2023/24 rinde homenaje a la trayectoria de 30 años de la incorporación al club del equipo femenino.</p>
+                    <p class="card-text"><strong>Precio: $32.99</strong></p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('Camiseta FC Barcelona 2024', 32.99)">Añadir al Carrito</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem; ">
-        <img src="img/colo.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta Colo Colo Visita</h5>
-            <p class="card-text">LA CAMISETA ALTERNATIVA 2024 PARA ALENTAR EN TODA OCASIÓN.</p>
-            <a href="#" class="btn btn-primary">VER</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem;">
-        <img src="img/boca.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta Boca Juniors</h5>
-            <p class="card-text">Cuenta la leyenda que los célebres colores azul y amarillo de Boca Juniors tienen su origen en un barco sueco.</p>
-            <a href="#" class="btn btn-primary">VER</a>
-        </div>
-        </div>
-    </div>
-    <br>
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem;">
-        <img src="img/brasil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta Brasil Copa América 2024</h5>
-            <p class="card-text"> El uniforme más icónico del mundo del fútbol con un estampado integral que celebra la arquitectura, la música y las maravillas naturales de Brasil.</p>
-            <a href="#" class="btn btn-primary">VER</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem;">
-        <img src="img/u.avif" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta Universidad de Chile 2024</h5>
-            <p class="card-text">Un estilo clasico conectando el pasado con el futuro, representando el azul del cielo Chileno.</p>
-            <a href="#" class="btn btn-primary">VER</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card" style="width: 20rem;">
-        <img src="img/barcelona.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Camiseta FC Barcelona 2024</h5>
-            <p class="card-text">El kit del FC Barcelona local 2023/24 rinde homenaje a la trayectoria de 30 años de la incorporación al club del equipo femenino.</p>
-            <a href="#" class="btn btn-primary">VER</a>
-        </div>
-        </div>
-    </div>
-    <!-- FIN CARDD-->
+</div>
+<!-- FIN CARD -->
 
-    <!-- BARRA DE CAMBIAR DE PAGINA-->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+<!-- Barra de cambiar de página -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
         <li class="page-item disabled">
             <a class="page-link">Previous</a>
         </li>
@@ -186,10 +187,11 @@
         <li class="page-item">
             <a class="page-link" href="#">Next</a>
         </li>
-        </ul>
-    </nav>
-    <!-- TERMINO BARRA-->
-    <!-- Copyright  -->
+    </ul>
+</nav>
+<!-- FIN Barra -->
+
+<!-- Copyright -->
 <div class="container-fluid bg-secondary text-white py-3">
     <div class="container-sm">
         <div class="row align-items-center">
@@ -206,7 +208,7 @@
         </div>
     </div>
 </div>
-<!-- FIN COPY-->
-</div>
+<!-- FIN Copyright -->
+
 </body>
 </html>
