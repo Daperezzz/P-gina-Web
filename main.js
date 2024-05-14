@@ -70,12 +70,12 @@ const fecha = document.getElementById('fecha').value;
 const check = document.getElementById('check').checked;
 
 if (!email || !password || !telefono || !fecha || !check) {
-    alert('Por favor, complete todos los campos requeridos.');
+    alert('Complete lo requerido');
     return false;
 }
 
 if (edad < 18) {
-    alert('Debe tener al menos 18 años.');
+    alert('Debes ser mayor de edad');
     return false;
 }
 
