@@ -15,7 +15,7 @@
   <!--INICIO NAV-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <a class="navbar-brand" href="#">
-      <img src="img/pelota.jpeg" alt="Logo" height="85" class="d-inline-block align-text-top">
+      <img src="img/PasionFutbolera.webp" alt="Logo" height="85" class="d-inline-block align-text-top">
       PasiónFutbolera
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,6 @@
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
-  </div>
   </nav>
 
   <!-- INICIO FORMULARIO-->
@@ -95,22 +94,21 @@
   <!-- FIN FORMULARIO-->
 
   <!-- Carrito-->
-  <div class="container-lg">
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Carrito</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div>
-          CARRITO DE COMPRAS EN MANTENIMIENTO
-        </div>
-        <div class="dropdown mt-3">
-          <button type="button" class="btn btn-primary">Confirmar</button>
-        </div>
+ <!-- Carrito-->
+ <div class="container-lg">
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Carrito</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="cartItems"></div>
+      <div class="dropdown mt-3">
+        <button type="button" class="btn btn-primary" onclick="confirmarCompra()">Confirmar Compra</button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Login-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
