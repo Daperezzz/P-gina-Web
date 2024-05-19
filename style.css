@@ -1,6 +1,6 @@
 .container{
     position: relative;
-    width: 15%;
+    width: 100%;
     overflow: hidden;
 }
 .container-lg .counter-countingcol-md-4  {
@@ -21,6 +21,7 @@ background-color: black;
 .page-item{
     text-align: center;
 }
+
 
 /*** Carrusel***/
 .carousel-header #carouselId .carousel-control-prev,
