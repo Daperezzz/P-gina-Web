@@ -1,6 +1,6 @@
 .container{
     position: relative;
-    width: 15%;
+    width: 100%;
     overflow: hidden;
 }
 .container-lg .counter-countingcol-md-4  {
@@ -113,5 +113,11 @@ background-color: black;
 
 .text-bodyCopy{
     color: white;
+}
+
+.card-img-top {
+    width: 400px;
+    height: 400px; /* Puedes ajustar la altura según sea necesario */
+     /* Esto asegura que la imagen se ajuste y recorte para llenar el tamaño especificado */
 }
 
